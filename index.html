@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal de inscrição para cursos técnicos integrados e subsequentes no CEEP Cianorte.">
+    <title>CEEP Cianorte 2026 - Ensino Técnico de Excelência</title>
+
+    <!-- Font Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --vermelho: #cc0000;
+            --amarelo: #fcc200;
+            --azul: #004a8d;
+            --texto: #333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Roboto', system-ui, sans-serif;
+            /* Degradê suave azul → vermelho */
+            background: linear-gradient(135deg, #003366 0%, #cc0000 100%);
+            color: var(--texto);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 1.2rem 5%;
+            border-bottom: 5px solid var(--vermelho);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 10;
+        }
+
+        .header-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brasao { height: 75px; width: auto; flex-shrink: 0; }
+
+        .header-title {
+            text-align: center;
+            flex: 1;
+        }
+
+        .header-title h1 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--azul);
+            margin-bottom: 4px;
+        }
+
+        .header-title strong {
+            font-size: 3.0rem;
+            color: var(--vermelho);
+            font-weight: 900;
+        }
+
+        /* HERO */
+        .hero {
+            background: rgba(0, 0, 0, 0.15); /* leve escurecimento para contraste */
+            color: white;
+            text-align: center;
+            padding: 5rem 5% 4rem;
+        }
+
+        .hero-icons {
+            font-size: 4.8rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+
+        /* SEÇÕES DE CURSOS */
+        .cursos-section {
+            padding: 60px 5%;
+            background: rgba(255, 255, 255, 0.95); /* Branco quase puro com leve transparência */
+            text-align: center;
+            margin: 0 5%;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .section-header h2 {
+            margin-bottom: 12px;
+            font-size: 2.1rem;
+        }
+
+        .integrado h2 { color: var(--vermelho); }
+        .subsequente h2 { color: var(--amarelo); }
+
+        .cursos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+            max-width: 1250px;
+            margin: 40px auto 0;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            padding: 32px 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .card.integrado { border-bottom: 6px solid var(--vermelho); }
+        .card.subsequente { border-bottom: 6px solid var(--amarelo); }
+
+        .card i {
+            font-size: 2.7rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .card.integrado i { color: var(--vermelho); }
+        .card.subsequente i { color: var(--amarelo); }
+
+        /* FOOTER */
+        footer {
+            background: rgba(44, 62, 80, 0.95);
+            color: white;
+            padding: 45px 5% 20px;
+            margin-top: 40px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-container a {
+            color: white;
+            text-decoration: none;
+            border: 1px solid var(--amarelo);
+            padding: 8px 18px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .footer-container a:hover {
+            background: var(--amarelo);
+            color: #2c3e50;
+        }
+
+        .footer-copy {
+            text-align: center;
+            margin-top: 35px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            opacity: 0.9;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+            .header-title h1 { font-size: 1.15rem; }
+            .header-title strong { font-size: 1.45rem; }
+            .brasao { height: 65px; }
+
+            .cursos-section { margin: 0 3%; padding: 50px 5%; }
+            .cursos-grid { grid-template-columns: 1fr; }
+            .hero { padding: 4rem 5% 3rem; }
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./CEEPlogobrasao-main/logoceep/favicon-16x16.png" type="image/x-icon">
+</head>
+<body>
+    <!-- resto do conteúdo permanece igual ao anterior -->
+    <header>
+        <div class="header-container">
+            <img src="./CEEPlogobrasao-main/brasao/android-chrome-512x512.png" 
+                 alt="Brasão CEEP Cianorte" 
+                 class="brasao">
+
+            <div class="header-title">
+                <strong>CEEP</strong>
+                <h1>CENTRO ESTADUAL DE EDUCAÇÃO PROFISSIONAL - CIANORTE</h1>
+            </div>
+
+            <img src="./CEEPlogobrasao-main/brasao/android-chrome-512x512.png" 
+                 alt="Brasão CEEP Cianorte" 
+                 class="brasao">
+        </div>
+    </header>
+    <br>
+    <main>
+        <!-- Cursos Integrados -->
+        <section class="cursos-section integrado" id="integrados">
+            <div class="section-header">
+                <h2>Cursos Técnicos - Ensino Médio Integrado</h2>
+                <p>Ensino Médio + Formação Técnica em um único curso</p>
+            </div>
+            <div class="cursos-grid">
+                <div class="card integrado">
+                    <i class="fas fa-cut"></i>
+                    <h3>Vestuário</h3>
+                    <p>Modelagem, corte, costura e gestão têxtil.</p>
+                </div>
+                <div class="card integrado">
+                    <i class="fas fa-vial"></i>
+                    <h3>Química</h3>
+                    <p>Análises laboratoriais e controle de qualidade.</p>
+                </div>
+                <div class="card integrado">
+                    <i class="fas fa-pills"></i>
+                    <h3>Farmácia</h3>
+                    <p>Manipulação de medicamentos e dispensação.</p>
+                </div>
+                <div class="card integrado">
+                    <i class="fas fa-code"></i>
+                    <h3>Desenvolvimento de Sistemas</h3>
+                    <p>Web, mobile e banco de dados.</p>
+                </div>
+                <div class="card integrado">
+                    <i class="fas fa-brain"></i>
+                    <h3>Inteligência Artificial e Dados</h3>
+                    <p>Machine Learning e análise de dados.</p>
+                </div>
+            </div>
+        </section>
+        <br>
+        
+
+        <!-- Cursos Subsequentes -->
+        <section class="cursos-section subsequente" id="subsequentes">
+            <div class="section-header">
+                <h2>Cursos Técnicos Subsequentes</h2>
+                <p>Para quem já concluiu o Ensino Médio</p>
+            </div>
+            <div class="cursos-grid">
+                <div class="card subsequente">
+                    <i class="fas fa-user-nurse"></i>
+                    <h3>Enfermagem</h3>
+                    <p>Assistência à saúde em hospitais e clínicas.</p>
+                </div>
+                <div class="card subsequente">
+                    <i class="fas fa-hard-hat"></i>
+                    <h3>Segurança do Trabalho</h3>
+                    <p>Prevenção de acidentes e saúde ocupacional.</p>
+                </div>
+                <div class="card subsequente">
+                    <i class="fas fa-users-cog"></i>
+                    <h3>Recursos Humanos</h3>
+                    <p>Gestão de pessoas e processos organizacionais.</p>
+                </div>
+                <div class="card subsequente">
+                    <i class="fas fa-code"></i>
+                    <h3>Desenvolvimento de Sistemas</h3>
+                    <p>Programação avançada e aplicações web/mobile.</p>
+                </div>
+                <div class="card subsequente">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Administração</h3>
+                    <p>Gestão empresarial e processos financeiros.</p>
+                </div>
+                <div class="card subsequente">
+                    <i class="fas fa-cut"></i>
+                    <h3>Vestuário</h3>
+                    <p>Produção têxtil e gestão de moda.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div>
+                <h3>CEEP Cianorte</h3>
+                <p>R. Dom Pedro II, 1550 - Zona 01</p>
+                <p>Cianorte - PR | (44) 3631-9685</p>
+            </div>
+            <div>
+                <h3>Conecte-se</h3>
+                <a href="https://wa.me/554436319685" target="_blank">WhatsApp</a>
+            </div>
+        </div>
+        <div class="footer-copy">
+            <p>&copy; Centro Estadual de Educação Profissional de Cianorte - 2026</p>
+        </div>
+    </footer>
+
+    <!-- VLibras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+</body>
+</html>
